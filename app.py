@@ -423,7 +423,7 @@ def create_ui(input_audio_max_duration, share=False, server_name: str = None, se
 
     demo = gr.TabbedInterface([simple_transcribe, full_transcribe], tab_names=["Simple", "Full"])
 
-    demo.launch(share=share, server_name=server_name, server_port=server_port)
+    demo.launch(share=True, server_name=server_name, server_port=server_port)
     
     # Clean up
     ui.close()
