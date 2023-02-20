@@ -30,9 +30,11 @@ app.post("/submitFormToNotion", jsonParser, async (req, res) => { //response and
     //res is HTTP response object, send the response, set the status, etc
     
     const name = req.body.name;
+    
 
     try{
-        const blockId = '63499a6f3fcc4960a6f7c5b985e9bb06';
+        console.log(req.body.notion)
+        const blockId = req.body.notion;
         const response = await notion.blocks.children.append({
             block_id: blockId,
             children: [
@@ -50,6 +52,7 @@ app.post("/submitFormToNotion", jsonParser, async (req, res) => { //response and
 
     console.log(response);
     console.log("success");
+    console.log(req.body.notion)
 
     }catch(error){
         console.log(error);
