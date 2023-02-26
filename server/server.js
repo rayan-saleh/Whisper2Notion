@@ -17,7 +17,7 @@ const port = process.env.PORT || 8080; //8080;
 // const host = process.env.HOST; //localhost;
 
 //init notion client 
-const notion = new Client({ auth: "secret_7ESs8DBns0qRQtkYtSyfaVBRNTerZ6wSN6MPpBNrroR" });
+// const notion = new Client({ auth: "secret_7ESs8DBns0qRQtkYtSyfaVBRNTerZ6wSN6MPpBNrroR" });
 
 
 
@@ -27,7 +27,8 @@ app.post("/", jsonParser, async (req, res) => { //response and request
     //res is HTTP response object, send the response, set the status, etc
     
     const name = req.body.name;
-    
+    const notion = new Client({ auth: req.body.auth });
+ 
 
     try{
         console.log(req.body.notion)

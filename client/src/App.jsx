@@ -6,6 +6,7 @@ import { AudioRecorder, useAudioRecorder } from 'react-audio-voice-recorder';
 
 function App() {
   const [notion, setNotion] = useState('')
+  const [secret, setSecret] = useState('')
   const recorderControls = useAudioRecorder();
 
   const addAudioElement = (blob) => {
@@ -44,7 +45,7 @@ function App() {
           "Content-Type": "application/json",
       },
         body: JSON.stringify({name: dataToNotion[0],
-        notion: match}), //converts to JSON
+        notion: match, auth: secret}), //converts to JSON
         }).then(response => response.json()) //seperates out the JSON
         .then(data => {
           console.log('Success:', data);
@@ -92,16 +93,37 @@ function App() {
                 <h1 className="mb-4 text-3xl tracking-tight font-extrabold text-gray-900 sm:text-4xl dark:text-white">Whisper2Notion</h1>
                 <p className="mx-auto mb-8 max-w-2xl font-light text-gray-500 md:mb-12 sm:text-xl dark:text-gray-400">Send voice notes transcribed by OpenAI's Whisper to your notion page. </p>
                 <br></br>
-                <br></br>
-                <br></br>
+           
                 {/* <div className="w-480 h-0.5 mx-auto my-4 bg-gray-100 border-0 rounded md:my-10 dark:bg-gray-700"> </div> */}
 
-                  <h3 className=" text-center mb-4 text-xl tracking-tight font-regular text-gray-900 sm:text-m dark:text-white">1. Add  <a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Whisper Integration</a>  to your notion workspace and page.</h3>
+                  <h3 className=" text-center mb-4 text-xl tracking-tight font-regular text-gray-900 sm:text-sm dark:text-white">1. Create  <a href="https://www.notion.so/my-integrations" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">your own integration</a> with the following capabilities:</h3>
+
+                  <input  name="myvalue" type="checkbox" disabled="disabled" checked="checked"/> <p className=" inline font-regular text-gray-900 sm:text-sm dark:text-white"> Insert content</p>
+                  <br></br>
+                  <input name="myvalue" type="checkbox" disabled="disabled" checked="checked"/><p className=" inline font-regular text-gray-900 sm:text-sm dark:text-white"> No user information</p> 
+
+                  <br></br>
+                  <br></br>
+                  <br></br>
+ 
+            <h3 className=" text-center	mb-4 text-xl tracking-tight font-regular text-gray-900 sm:text-sm dark:text-white">Paste the newly created integration's Internal Integration Token  </h3>
+              
+              <div className="items-center mx-auto mb-3 space-y-4 max-w-screen-sm sm:flex sm:space-y-0">
+                  <div className="relative w-full">
+                      <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-brand-notion" width="24" height="24" viewBox="0 0 24 24" strokeWidth="1" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round"> <path stroke="none" d="M0 0h24v24H0z" fill="none"/> <rect x="4" y="4" width="16" height="16" rx="2" /> <path d="M7 7h3l6 6" /> <path d="M8 7v10" /> <path d="M7 17h2" /> <path d="M15 7h2" /> <path d="M16 7v10h-1l-7 -7" /> </svg>
+                      </div>
+                      <input className="block p-3 pl-10 w-full text-xs text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="e.g. secret_1nWhDwKmhQJT6Mm7tccz5A3reyEQ0gLnrik60ezfjYJ" type="text" id="name" onChange={(e) => setSecret(e.target.value)} required=""/>
+                  </div>
+                  
+              </div>
+              <br></br>
+
         <div className="w-480 h-0.5 mx-auto my-4 bg-gray-100 border-0 rounded md:my-10 dark:bg-gray-700"> </div>
         <br></br>
  
-            <h3 className=" text-center	mb-4 text-xl tracking-tight font-regular text-gray-900 sm:text-m dark:text-white">2. Paste notion page link to send text data to. </h3>
-              
+            <h3 className=" text-center	mb-4 text-xl tracking-tight font-regular text-gray-900 sm:text-sm dark:text-white">2. <a href="https://www.notion.so/help/add-and-manage-connections-with-the-api#add-connections-to-pages
+" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Add</a> your notion integration to the page you would like to send text data to and paste the page link. </h3>
               <div className="items-center mx-auto mb-3 space-y-4 max-w-screen-sm sm:flex sm:space-y-0">
                   <div className="relative w-full">
                       <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
@@ -115,7 +137,7 @@ function App() {
           <div className="w-480 h-0.5 mx-auto my-4 bg-gray-100 border-0 rounded md:my-10 dark:bg-gray-700"> </div>
           <br></br>
 
-              <h3 className=" text-center	mb-4 text-xl tracking-tight font-regular text-gray-900 sm:text-m dark:text-white">3. Record audio - when you're happy with the recording, press send  </h3>
+              <h3 className=" text-center	mb-4 text-xl tracking-tight font-regular text-gray-900 sm:text-sm dark:text-white">3. Record audio - when you're happy with the recording, press send  </h3>
               <h4 className=" text-center	mb-4 text-m tracking-tight font-bold text-gray-900 sm:text-m dark:text-white"></h4>
 
               {/* center div */}
