@@ -1,6 +1,6 @@
-# Template Terms and Condictions 
+# Terms and Condictions 
 
-This is a collection of documents prepared by lawyers designed to be used as a template for your own app's terms of service, privacy policy and copyright policy. They are important legal documents and we recommend you get a qualified legal opinion before applying them to your own services and apps. We will occasionally update these documents to keep them up-to-date. To facilitate transparent discussion, we encourage users to create issues and/or submit pull requests with your feedback. Our general process is to incorporate user feedback on a roughly quarterly basis based on review with our legal team.
+They are important legal documents and we recommend you get a qualified legal opinion before applying them to your own services and apps. We will occasionally update these documents to keep them up-to-date. To facilitate transparent discussion, we encourage users to create issues and/or submit pull requests with your feedback. Our general process is to incorporate user feedback on a roughly quarterly basis based on review with our legal team.
 
 ## License
 
